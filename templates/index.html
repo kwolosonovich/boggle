@@ -1,6 +1,24 @@
 {%  extends 'base.html' %}
-{% block title %}Surveys{% endblock %}
+{% block title %}Boggle{% endblock %}
 
 {% block content %}
-    <h1>homepage</h1>
+    <h1>Boggle</h1>
+
+    <div class="game_board">
+{#    list with 5 nested lists containing 5 letters#}
+        <table>
+            {% for row in board %}
+                <tr>
+                    {% for cell in row %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <form action="submit">
+        <label for="guess">Submit Guess</label>
+        <input type="text" id="guess">
+    </form>
+
 {%  endblock %}
