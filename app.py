@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, session
+from flask import Flask, request, render_template, redirect, session, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from boggle import Boggle
 
@@ -19,14 +19,21 @@ def index():
     session['board'] = board
     return render_template("index.html", board=board)
 
-@app.route('/player_guess', methods=["POST"])
+@app.route('/player_guess')
 def player_guess():
-    '''collects player guess from class BoggleGame'''
-    # word = get(req)
+    '''collects player guess and checks for validity'''
+    word_guess = request.args['word_guess']
+    print(word_guess)
+    board = session["board"]
+    response = boggle_game.check_valid_word(board, word_guess)
+    print(response)
+
+    return jsonify({'result': response})
+
+    #
+    # word = request.args["word"]
     # print(word)
-    # # print(request.__dict__)
-    return "200"
-    # guess = request.args["word_guess"]
-    # print(guess)
     # board = session["board"]
-    # print(board)
+    # response = boggle_game.check_valid_word(board, word)
+    #
+    # return jsonify({'result': response})
