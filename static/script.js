@@ -4,19 +4,16 @@ class BoggleGame {
         // # create ID for game instance
         this.board = $("#" + boardId);
 
-        $(".add-word", this.board).on("submit", this.handleSubmitWord.bind(this));
+        $(".player-guess", this.board).on("submit", this.handleSubmitWord.bind(this));
     }
     // event handler for submitted word, collects word value
      async handleSubmitWord(e) {
         e.preventDefault();
 
-         const $word = $(".word", this.board);
+         const $word_guess = $(".word_guess", this.board);
 
-         let word = $word.val();
-         console.log(word)
-         // if (!word) return;
+         let word_guess = $word_guess.val();
+         console.log(word_guess)
 
-        // let $guessedWord = await axios.get(".player_guess", this.board)
-        // console.log($guessedWord)
     }
 }

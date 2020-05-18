@@ -17,11 +17,17 @@
                 {% endfor %}
             </table>
         </div>
-
-        <form method="POST" class="add-word">
-            <input name="word" class="word" autofocus>
-            <button>Enter</button>
+        {#    form collects player's guess and on submit the guess is added as a BoggleGame class constructor  #}
+        <form method="POST" class="player-guess">
+{#      solution code: <form method="POST" class="add-word">#}
+            <div class="form-group">
+                <label for="guess">Guess a Word</label>
+                <input type="text" id="guess" class="word_guess" name="word_guess">
+{#               solution code: <input name="word" class="word" autofocus>#}
+                <button class="submit_button btn btn-primary">Submit</button>
+            </div>
         </form>
+
 
     </section>
 {#    form collects player's guess and on submit the guess is added as a BoggleGame class constructor  #}
