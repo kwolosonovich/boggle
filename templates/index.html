@@ -6,7 +6,7 @@
 
     <div class="game_board">
 {#    list with 5 nested lists containing 5 letters#}
-        <table>
+        <table class="table">
             {% for row in board %}
                 <tr>
                     {% for cell in row %}
@@ -17,8 +17,11 @@
         </table>
     </div>
     <form action="submit">
-        <label for="guess">Submit Guess</label>
-        <input type="text" id="guess">
+        <div class="form-group">
+            <label for="guess">Guess a Word</label>
+            <input type="text" id="guess" class="form-control">
+            <button type="submit" class="submit_button btn btn-primary">Submit</button>
+        </div>
     </form>
 
 {%  endblock %}
