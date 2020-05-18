@@ -16,10 +16,11 @@
             {% endfor %}
         </table>
     </div>
-    <form action="submit">
+{#    form collects player's guess and on submit the guess is added as a BoggleGame class constructor  #}
+    <form action="/player_guess" method="POST" class="player_guess">
         <div class="form-group">
             <label for="guess">Guess a Word</label>
-            <input type="text" id="guess" class="form-control">
+            <input type="text" id="guess" class="form-control word_guess" name="word_guess">
             <button type="submit" class="submit_button btn btn-primary">Submit</button>
         </div>
     </form>
