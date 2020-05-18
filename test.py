@@ -5,6 +5,11 @@ from boggle import Boggle
 
 
 class FlaskTests(TestCase):
+    def setUp(self):
+        '''to run before each test, creates client'''
+        self.client = app.test_client()
+        app.config['testing'] = True
 
-    # TODO -- write tests for every view function / feature!
+    def test_index(self):
+        '''test if game board is generated'''
 
