@@ -21,27 +21,37 @@
             </table>
         </div>
         {#    form collects player's guess and on submit the guess is added as a BoggleGame class constructor  #}
-        <form id="form-block" method="POST" class="player-guess">
-{#      solution code: <form method="POST" class="add-word">#}
-            <div class="form-group">
-                <label for="guess">Guess a Word</label>
-                <input type="text" id="guess" class="word_guess" name="word_guess">
-{#               solution code: <input name="word" class="word" autofocus>#}
-                <button class="submit_button btn btn-primary">Submit</button>
+        <div id="game-info">
+            <div class="container" id="form">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <form id="form-block" method="POST" class="player-guess">
+                {#      solution code: <form method="POST" class="add-word">#}
+                            <div class="form-group">
+                                <label for="guess">Guess a Word</label>
+                                <input type="text" id="guess" class="word_guess" name="word_guess">
+                {#               solution code: <input name="word" class="word" autofocus>#}
+                                <button class="submit_button btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-6">
+                        {# player score #}
+                        <h6 class="score">Score:</h6>
+                        {# highest score #}
+                        <h6 class="high-score">Top Score:</h6>
+                    </div>
+                </div>
+                <div class="row">
+            {#        # message to player#}
+                    <h6 class="message"></h6>
+                </div>
+        {#        # game timer - progress bar#}
+                <div class="progress row">
+                    <div class="timer progress-bar progress-bar-striped progress-bar-animated active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
             </div>
-        </form>
-
-{#        # message to player#}
-        <p class="message"></p>
-{#        player score#}
-        <p class="score"></p>
-{#        # game timer - progress bar#}
-        <div class="progress">
-            <div class="timer progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
         </div>
-
-        <div id="progressTimer"></div>
-
     </section>
 
 

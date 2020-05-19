@@ -9,7 +9,9 @@ class BoggleGame {
         // this.progressTimer = $(".timer")
         // console.log(progressTimer)
 
-        // $("#start", this.board).on("submit", this.gameTimer.bind(this))
+        $("#start", this.board).on("submit", this.gameTimer.bind(this))
+
+
         // $("#start").addEventListener('click', ev => this.OnEvent(e), this.board).onclick(function(e) {})
         $(".player-guess", this.board).on("submit", this.handleSubmitWord.bind(this));
     }
@@ -64,7 +66,9 @@ class BoggleGame {
 
     // gameboard timer - 60 second progress bar
 
-    // gameTimer() {
+    gameTimer() {
+        console.log('start game')
+    }
     //     // e.preventDefault();
     //     // console.log('here');
     //     // let gameTime = $('.timer').progressBarTimer()
