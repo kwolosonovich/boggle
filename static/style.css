@@ -1,3 +1,8 @@
+body, main {
+    background-image: url("../images/1.jpg");
+    background: url("../images/1.jpg");
+}
+
 h1 {
     color: #0a5380;
 }
