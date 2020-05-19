@@ -5,6 +5,12 @@ class BoggleGame {
         this.board = $("#" + boardId);
         this.guesses = new Set()
         this.score = 0;
+        this.timer = 60
+        // this.progressTimer = $(".timer")
+        // console.log(progressTimer)
+
+        $("#start", this.board).on("submit", this.gameTimer.bind(this))
+        // $("#start").addEventListener('click', ev => this.OnEvent(e), this.board).onclick(function(e) {})
         $(".player-guess", this.board).on("submit", this.handleSubmitWord.bind(this));
     }
     // event handler for submitted word, collects word value
@@ -51,5 +57,17 @@ class BoggleGame {
     // show and update player score
     playerScore() {
         $(".score", this.board).text(this.score);
+    }
+    // gameboard timer - 60 second progress bar
+
+    gameTimer(e) {
+        e.preventDefault();
+        // console.log('here');
+        let gameTime = $('.timer').progressBarTimer()
+        gameTime.start()
+
+        // show final score on finish
+        // onFinish:function() {}
+
     }
 }

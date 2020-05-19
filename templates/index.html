@@ -3,7 +3,10 @@
 
 {% block content %}
     <h1>Boggle</h1>
+    <button id="start" class="submit_button btn btn-primary">Start Game</button>
+
     <section id="boggle">
+
         <div class="board">
     {#    list with 5 nested lists containing 5 letters#}
 {#            # solution <table class="board">#}
@@ -32,18 +35,11 @@
         <p class="message"></p>
 {#        player score#}
         <p class="score"></p>
-
+{#        # game timer - progress bar#}
+        <div class="progress">
+            <div class="timer progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+        </div>
     </section>
-{#    form collects player's guess and on submit the guess is added as a BoggleGame class constructor  #}
-{#    <form method="POST" class="add-word">#}
-{#        <div class="form-group">#}
-{#            <label for="guess">Guess a Word</label>#}
-              {# TODO: use this line later on #}
-{#            <input type="text" id="guess" class="form-control word_guess" name="word_guess">#}
-{#            <input type="text" id="guess" class="word" name="word">#}
-{#            <button type="submit" class="submit_button btn btn-primary">Submit</button>#}
-{#        </div>#}
-{#    </form>#}
 
 
 {%  endblock %}
