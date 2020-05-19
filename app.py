@@ -30,10 +30,3 @@ def player_guess():
 
     return jsonify({'result': response})
 
-    #
-    # word = request.args["word"]
-    # print(word)
-    # board = session["board"]
-    # response = boggle_game.check_valid_word(board, word)
-    #
-    # return jsonify({'result': response})

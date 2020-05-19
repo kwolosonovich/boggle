@@ -4,6 +4,7 @@ class BoggleGame {
         // # create ID for game instance
         this.board = $("#" + boardId);
         this.guesses = new Set()
+        this.score = 0;
         $(".player-guess", this.board).on("submit", this.handleSubmitWord.bind(this));
     }
     // event handler for submitted word, collects word value
@@ -42,5 +43,9 @@ class BoggleGame {
     // show message to player
     messageToPlayer(message, messageType) {
         $(".message", this.board).text(message).addClass(`message, ${messageType}`)
+    }
+    // show and update player score
+    playerScore() {
+        $(".score", this.board).text(this.score);
     }
 }
