@@ -12,7 +12,7 @@ toolbar = DebugToolbarExtension(app)
 
 boggle_game = Boggle()
 
-@app.route('/', methods=["POST"])
+@app.route('/', methods=["GET", "POST"])
 def index():
     '''homepage, render game board'''
     board = boggle_game.make_board()

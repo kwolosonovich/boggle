@@ -3,7 +3,6 @@
 
 {% block content %}
 
-    <h1>Boggle</h1>
     <button id="start" class="submit_button btn btn-primary">Start Game</button>
 
     <section id="boggle">
@@ -22,7 +21,7 @@
             </table>
         </div>
         {#    form collects player's guess and on submit the guess is added as a BoggleGame class constructor  #}
-        <form method="POST" class="player-guess">
+        <form id="form-block" method="POST" class="player-guess">
 {#      solution code: <form method="POST" class="add-word">#}
             <div class="form-group">
                 <label for="guess">Guess a Word</label>

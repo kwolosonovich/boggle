@@ -1,8 +1,27 @@
-body, main {
-    background-image: url("../images/1.jpg");
-    background: url("../images/1.jpg");
+
+
+#main-style {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
 }
 
-h1 {
-    color: #0a5380;
+#heading {
+    margin: 0px 40px;
+    text-align: center;
 }
+
+#form-block {
+    background-image: url("images/2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    margin: auto;
+    background-color: #81f0f4;
+}
+
