@@ -1,27 +1,26 @@
+#heading {
+    margin: 0px;
+    text-align: center;
+    /*background-color: #81f0f4;*/
+    width: 100%;
+    padding: 40px 0px;
 
-
+}
 #main-style {
     display: block;
     width: 60%;
     margin: 0 auto;
 }
-
-#heading {
-    margin: 0px 40px;
-    text-align: center;
-}
-
 #form-block {
     background-image: url("images/2.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-
 #footer {
     position: fixed;
     bottom: 0;
-    margin: auto;
-    background-color: #81f0f4;
+    /*background-color: #81f0f4;*/
+    height: 100px;
+    width: 100%;
 }
 
