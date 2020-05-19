@@ -38,6 +38,10 @@ class BoggleGame {
          } else {
              console.log('match')
              this.messageToPlayer(`Great job!`, 'match')
+             // # add length of word to player score
+             this.score += word_guess.length
+             console.log(this.score)
+             this.playerScore()
          }
     }
     // show message to player
