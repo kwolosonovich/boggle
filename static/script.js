@@ -5,7 +5,7 @@ class BoggleGame {
         this.board = $("#" + boardId);
         this.guesses = new Set()
         this.score = 0;
-        this.timeLeft = 60;
+        this.timeLeft = 20;
         this.setGameTimer();
 
         $(".player-guess", this.board).on("submit", this.handleSubmitWord.bind(this));
@@ -22,26 +22,21 @@ class BoggleGame {
         if (!word_guess) return;
         // check if word has already been submitted
         if (this.guesses.has(word_guess)) {
-            console.log('error')
             this.messageToPlayer("Duplicate word", "error");
             return;
         }
         // add guess to set - *** code is different from solution ***
         this.guesses.add(word_guess)
         console.log(this.guesses)
-
-
         //check if guess is a valid word on the server
         const resp = await axios.get("/player_guess", {params: {word_guess: word_guess}});
+        // return validity message to player
         if (resp.data.result === "not-word") {
-            console.log('not valid word')
-            this.messageToPlayer(`${word_guess} is not a valid word`, "error")
+            this.messageToPlayer(`${word_guess} is not a valid word`, "red")
         } else if (resp.data.result === "not-on-board") {
-            console.log("not a valid game word")
             this.messageToPlayer(`${word_guess} is not included on board`)
         } else {
-            console.log('match')
-            this.messageToPlayer(`Great job!`, 'match')
+            this.messageToPlayer(`Great job!`, 'blue')
             // # add length of word to player score
             this.score += word_guess.length
             console.log(this.score)
@@ -64,9 +59,8 @@ class BoggleGame {
         this.timerId = setInterval(function() {
             if (this.timeLeft <= 0){
                 clearInterval(this.timerId)
-                console.log('if called')
+                this.gameOver()
             } else {
-                console.log('else called')
                 this.timeLeft -= 0.1;
                 this.updateTimer();
             }
@@ -75,7 +69,17 @@ class BoggleGame {
 
     // update progress bar to show percentage of time remaining
     updateTimer() {
-        console.log(this.timeLeft/60*100)
         $(".timer").css({width: `${this.timeLeft/60*100}%`})
+    }
+
+     async gameOver() {
+        $(".timer").hide();
+        $(".word_guess").hide();
+        const resp = await axios.post('/final-score', {score: this.score});
+        if (resp.data.highScore) {
+            this.messageToPlayer(`New high score is ${this.score}`, blue)
+        } else {
+            this.messageToPlayer(`Your score is ${this.score}`, blue)
+        }
     }
 }

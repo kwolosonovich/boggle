@@ -30,3 +30,11 @@ def player_guess():
 
     return jsonify({'result': response})
 
+@app.route("/post-score", methods=["POST"])
+def player_score():
+    score = request.json["score"]
+    highScore = session.get("highScore", 0)
+    session['highScore'] = max(score, highScore)
+    print(score)
+    return score
+
