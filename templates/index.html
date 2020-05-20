@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <button id="start" class="submit_button btn btn-primary">Start Game</button>
+{#    <button id="start" class="submit_button btn btn-primary">Start Game</button>#}
 
     <section id="boggle">
 
@@ -24,27 +24,31 @@
         <div id="game-info">
             <div class="container" id="form">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-md-4">
                         <form id="form-block" method="POST" class="player-guess">
                 {#      solution code: <form method="POST" class="add-word">#}
                             <div class="form-group">
-                                <label for="guess">Guess a Word</label>
-                                <input type="text" id="guess" class="word_guess" name="word_guess">
+                                <input type="text" id="guess" class="word_guess" name="word_guess" placeholder="Guess a Word">
                 {#               solution code: <input name="word" class="word" autofocus>#}
+                                <br>
                                 <button class="submit_button btn btn-primary">Submit</button>
                             </div>
                         </form>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-md-4">
                         {# player score #}
-                        <h6 class="score">Score:</h6>
+                        <h4>Score:</h4>
+                        <h4 class="score"></h4>
+                    </div>
+                    <div class="col-md-4">
                         {# highest score #}
-                        <h6 class="high-score">Top Score:</h6>
+                        <h4>High Score:</h4>
+                        <h3 class="high-score"></h3>
                     </div>
                 </div>
                 <div class="row">
             {#        # message to player#}
-                    <h6 class="message"></h6>
+                    <h4 class="message">Placeholder</h4>
                 </div>
         {#        # game timer - progress bar#}
                 <div class="progress row">

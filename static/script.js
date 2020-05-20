@@ -5,14 +5,9 @@ class BoggleGame {
         this.board = $("#" + boardId);
         this.guesses = new Set()
         this.score = 0;
-        // this.gameTimer()
-        // this.progressTimer = $(".timer")
-        // console.log(progressTimer)
+        this.timeLeft = 60;
+        this.setGameTimer();
 
-        $("#start", this.board).on("submit", this.gameTimer.bind(this))
-
-
-        // $("#start").addEventListener('click', ev => this.OnEvent(e), this.board).onclick(function(e) {})
         $(".player-guess", this.board).on("submit", this.handleSubmitWord.bind(this));
     }
 
@@ -64,32 +59,23 @@ class BoggleGame {
         $(".score", this.board).text(this.score);
     }
 
-    // gameboard timer - 60 second progress bar
-
-    gameTimer() {
-        console.log('start game')
+    // set game timer to start at 60 seconds and call updateTimer() until time left is 0
+    setGameTimer() {
+        this.timerId = setInterval(function() {
+            if (this.timeLeft <= 0){
+                clearInterval(this.timerId)
+                console.log('if called')
+            } else {
+                console.log('else called')
+                this.timeLeft -= 0.1;
+                this.updateTimer();
+            }
+        }.bind(this), 100)
     }
-    //     // e.preventDefault();
-    //     // console.log('here');
-    //     // let gameTime = $('.timer').progressBarTimer()
-    //     // gameTime.start()
-    //
-    //     $('.progress').progressBarTimer({autostart: true})
-    //
-    //     // show final score on finish
-    //     // onFinish:function() {}
-    // }
 
-    // gameTimer() {
-    //     $("#progressTimer").progressTimer({
-    //         timeLimit: 120,
-    //         warningThreshold: 10,
-    //         baseStyle: 'progress-bar-warning',
-    //         warningStyle: 'progress-bar-danger',
-    //         completeStyle: 'progress-bar-info',
-    //         onFinish: function () {
-    //             console.log("I'm done");
-    //         }
-    //     });
-    // }
+    // update progress bar to show percentage of time remaining
+    updateTimer() {
+        console.log(this.timeLeft/60*100)
+        $(".timer").css({width: `${this.timeLeft/60*100}%`})
+    }
 }
