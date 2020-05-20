@@ -5,24 +5,31 @@ body {
 }
 h1, h4 {
     font-family: 'Sigmar One', cursive;
+    text-align: center;
 }
 h3, h5 {
     font-family: 'Open Sans', sans-serif;
 }
+hr {
+    margin-top: 50px;
+    border-top: 3px solid #c1bcba;
+}
 .dark {
     color: #4F707C;
+    padding-bottom: 35px;
 }
-
-#heading {
-    margin: 0px;
+.format {
+    width: 100%;
     text-align: center;
-    padding: 60px 0px;
 }
-
+#heading {
+    margin-bottom: 80px;
+    text-align: center;
+    padding: 60px 0 0 0;
+}
 .table {
     margin: 0 auto;
     color: #73628a;
-    opacity: 95%;
 }
 td {
     background-color: #c17a5f;
@@ -33,29 +40,35 @@ td {
     font-family: 'Sigmar One', cursive;
     font-size: 40px;
 }
+.progress {
+    margin: 0 auto;
+    background-color: #c1bcba;
+    border: solid 4px white;
+    border-radius: 7px;
+    width: 100%;
+}
+#form-block {
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 30px;
+}
 #guess {
     font-family: 'Open Sans', sans-serif;
-    padding: 3px 10px;
-    border-radius: 6%;
-}
-#message-text {
-    text-align: center;
+    padding: 5px 15px;
+    border-radius: 7px;
     width: 100%;
 }
 .submit_button {
     background-color: #c1bcba;
     border: 1px solid white;
-    border-radius: 6%;
+    border-radius: 7px;
     font-family: 'Open Sans', sans-serif;
 }
-.progress {
-    margin: 0 auto;
-    background-color: #c1bcba;
-    border: solid 4px white;
-    border-radius: 8px;
-    width: 100%;
+.submit_button:hover {
+    background-color: white;
+    border: 1px solid #c1bcba;
+    color: #4F707C;
 }
-
 #footer {
     position: fixed;
     bottom: 0;
@@ -67,11 +80,5 @@ td {
     padding: 60px 35px;
     text-align: center;
     border-top-left-radius: 20px;
-}
-.ok {
-    color: #8fae25;
-}
-.error {
-    color: #ce3d20;
 }
 

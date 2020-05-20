@@ -40,6 +40,7 @@ class BoggleGame {
             this.messageToPlayer(`Great job!`, 'alert-success')
             // # add length of word to player score
             this.score += word_guess.length
+            this.showWords(word_guess)
             console.log(this.score)
             this.playerScore()
         }
@@ -48,6 +49,11 @@ class BoggleGame {
     // show message to player
     messageToPlayer(message, messageType) {
         $(".message", this.board).text(message).addClass(`message, ${messageType}`)
+    }
+
+    // show guesses
+    showWords(word_guess) {
+        $(".word-bank", this.board).append($("<li>", {text: word_guess}))
     }
 
     // show and update player score
@@ -74,13 +80,12 @@ class BoggleGame {
     }
 
      async gameOver() {
-        $(".timer").hide();
-        // $(".word_guess").hide();
-        const resp = await axios.post('/final-score', {score: this.score});
-        // if (resp.data.highScore) {
-        //     this.messageToPlayer(`New high score is ${this.score}`, "alert-success")
-        // } else {
-            this.messageToPlayer(`Your score is ${this.score}`, "alert-info")
-        // }
+        const resp = await axios.post('/post-score', {score: this.score});
+        if (resp.data.highest_score) {
+            this.messageToPlayer(`New high score is ${this.score}!`, "alert-success")
+
+        } else {
+            this.messageToPlayer(`Your score is ${this.score}!`, "alert-info")
+        }
     }
 }
