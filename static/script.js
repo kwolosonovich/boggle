@@ -5,7 +5,7 @@ class BoggleGame {
         this.board = $("#" + boardId);
         this.guesses = new Set()
         this.score = 0;
-        this.timeLeft = 30;
+        this.timeLeft = 60;
         this.setGameTimer();
 
         $(".player-guess", this.board).on("submit", this.handleSubmitWord.bind(this));
