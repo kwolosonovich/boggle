@@ -32,6 +32,7 @@ def player_guess():
 
 @app.route("/post-score", methods=["POST"])
 def player_score():
+    '''post player score and get highest score'''
     score = request.json["score"]
     highscore = session.get("highscore", 0)
     session['highscore'] = max(score, highscore)
