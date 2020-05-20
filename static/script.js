@@ -62,7 +62,6 @@ class BoggleGame {
             if (this.timeLeft <= 0){
                 clearInterval(this.timerId)
                 this.gameOver()
-
             } else {
                 this.timeLeft -= 0.1;
                 this.updateTimer();
