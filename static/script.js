@@ -28,6 +28,7 @@ class BoggleGame {
         this.guesses.add(word_guess)
         //check if guess is a valid word on the server
         const resp = await axios.get("/player_guess", {params: {word_guess: word_guess}});
+        $word_guess.val("");
         // return validity message to player
         if (resp.data.result === "not-word") {
             this.messageToPlayer(`${word_guess} is not a valid word`, "alert-danger")
