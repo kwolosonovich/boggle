@@ -48,7 +48,7 @@ class BoggleGame {
 
     // show guesses
     showWords(word_guess) {
-        $(".word-bank", this.board).append($("<li>", {text: word_guess}))
+        $(".word-bank", this.board).append($(`<h5>${word_guess}</h5>`))
     }
 
     // show and update player score
