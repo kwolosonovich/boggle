@@ -10,7 +10,7 @@
         <div class="board">
     {#    list with 5 nested lists containing 5 letters#}
 {#            # solution <table class="board">#}
-            <table class="table">
+            <table class="table table-borderless">
                 {% for row in board %}
                     <tr>
                         {% for cell in row %}
@@ -31,7 +31,7 @@
                                 <input type="text" id="guess" class="word_guess" name="word_guess" placeholder="Guess a Word">
                 {#               solution code: <input name="word" class="word" autofocus>#}
                                 <br>
-                                <button class="submit_button btn btn-primary">Submit</button>
+                                <button class="submit_button btn">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -43,16 +43,18 @@
                     <div class="col-md-4">
                         {# highest score #}
                         <h4>High Score:</h4>
-                        <h3 class="high-score"></h3>
+                        <h4 class="high-score"></h4>
                     </div>
                 </div>
                 <div class="row">
+{#                    <div class="col-md-4">#}
             {#        # message to player#}
-                    <h4 class="message">Placeholder</h4>
+                        <h4 class="message" id="message-text">Placeholder</h4>
+{#                    </div>#}
                 </div>
         {#        # game timer - progress bar#}
-                <div class="progress row">
-                    <div class="timer progress-bar progress-bar-striped progress-bar-animated active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress row" style="height: 25px">
+                    <div id="timer-bar" class="timer progress-bar progress-bar-striped bg-white progress-bar-animated active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
         </div>

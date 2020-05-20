@@ -5,7 +5,7 @@ class BoggleGame {
         this.board = $("#" + boardId);
         this.guesses = new Set()
         this.score = 0;
-        this.timeLeft = 20;
+        this.timeLeft = 5;
         this.setGameTimer();
 
         $(".player-guess", this.board).on("submit", this.handleSubmitWord.bind(this));
@@ -22,7 +22,7 @@ class BoggleGame {
         if (!word_guess) return;
         // check if word has already been submitted
         if (this.guesses.has(word_guess)) {
-            this.messageToPlayer("Duplicate word", "error");
+            this.messageToPlayer("Duplicate word", "red");
             return;
         }
         // add guess to set - *** code is different from solution ***
@@ -36,7 +36,7 @@ class BoggleGame {
         } else if (resp.data.result === "not-on-board") {
             this.messageToPlayer(`${word_guess} is not included on board`)
         } else {
-            this.messageToPlayer(`Great job!`, 'blue')
+            this.messageToPlayer(`Great job!`, 'green')
             // # add length of word to player score
             this.score += word_guess.length
             console.log(this.score)
@@ -77,9 +77,9 @@ class BoggleGame {
         $(".word_guess").hide();
         const resp = await axios.post('/final-score', {score: this.score});
         if (resp.data.highScore) {
-            this.messageToPlayer(`New high score is ${this.score}`, blue)
+            this.messageToPlayer(`New high score is ${this.score}`, "green")
         } else {
-            this.messageToPlayer(`Your score is ${this.score}`, blue)
+            this.messageToPlayer(`Your score is ${this.score}`, "green")
         }
     }
 }
