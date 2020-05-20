@@ -16,8 +16,6 @@ class BoggleGame {
         e.preventDefault();
 
         const $word_guess = $(".word_guess", this.board);
-        console.log('handleSubmit')
-
         let word_guess = $word_guess.val();
         // check if word was submitted
         if (!word_guess) return;
@@ -28,7 +26,6 @@ class BoggleGame {
         }
         // add guess to set - *** code is different from solution ***
         this.guesses.add(word_guess)
-        console.log(this.guesses)
         //check if guess is a valid word on the server
         const resp = await axios.get("/player_guess", {params: {word_guess: word_guess}});
         // return validity message to player
@@ -38,11 +35,9 @@ class BoggleGame {
             this.messageToPlayer(`${word_guess} is not included on board`)
         } else {
             this.messageToPlayer(`Great job!`, 'alert-success')
-            // # add length of word to player score
-            this.score += word_guess.length
-            this.showWords(word_guess)
-            console.log(this.score)
-            this.playerScore()
+            this.score += word_guess.length   // # add length of word to player score
+            this.showWords(word_guess)   // add word to word bank
+            this.playerScore()   // update player score
         }
     }
 
@@ -67,6 +62,7 @@ class BoggleGame {
             if (this.timeLeft <= 0){
                 clearInterval(this.timerId)
                 this.gameOver()
+
             } else {
                 this.timeLeft -= 0.1;
                 this.updateTimer();
@@ -80,10 +76,12 @@ class BoggleGame {
     }
 
      async gameOver() {
-        const resp = await axios.post('/post-score', {score: this.score});
+         $(".word-bank", this.board).hide()
+         $(".player-guess", this.board).hide()
+         const resp = await axios.post('/post-score', {score: this.score});
         if (resp.data.highest_score) {
             this.messageToPlayer(`New high score is ${this.score}!`, "alert-success")
-
+            $(".high-score", this.board).text(this.score);
         } else {
             this.messageToPlayer(`Your score is ${this.score}!`, "alert-info")
         }
