@@ -1,85 +1,72 @@
 body {
-    background-color: #eae9e7;
+    background-color: #D0E3EA;
+    height: 100%;
+    color: #c17a5f;
 }
 h1, h4 {
     font-family: 'Sigmar One', cursive;
-    /*text-align: center;*/
 }
 h3, h5 {
     font-family: 'Open Sans', sans-serif;
 }
+.dark {
+    color: #4F707C;
+}
+
 #heading {
     margin: 0px;
     text-align: center;
-    width: 100%;
     padding: 60px 0px;
-    color: #861e41;
-    background-color: #eae9e7;
 }
-#boggle {
-    background-image: url("images/2.jpg");
-    background-size: contain;
-    height: 800px;
-    width: auto;
-    background-repeat: round;
-}
-.board {
-    padding-top: 40px;
-}
+
 .table {
-    width: 60%;
-    height: auto;
     margin: 0 auto;
     color: #73628a;
     opacity: 95%;
 }
 td {
-    background-color: white;
+    background-color: #c17a5f;
+    color: white;
     text-align: center;
-    border-radius: 8px;
-    border: 3px groove #d77033;
+    border-radius: 20px;
     margin: 15px;
     font-family: 'Sigmar One', cursive;
     font-size: 40px;
 }
-#form {
-    color: #861e41;
-    height: 100px;
-    width: 60%;
-    text-align: center;
-    padding-top: 75px;
-}
 #guess {
     font-family: 'Open Sans', sans-serif;
     padding: 3px 10px;
+    border-radius: 6%;
 }
 #message-text {
+    text-align: center;
     width: 100%;
 }
-.row {
-    margin-top: 20px;
-    /*text-align: center;*/
-}
 .submit_button {
-    margin-top: 20px;
-    background-color: white;
-    border: 3px solid #861e41;
+    background-color: #c1bcba;
+    border: 1px solid white;
+    border-radius: 6%;
     font-family: 'Open Sans', sans-serif;
 }
 .progress {
     margin: 0 auto;
-    background-color: #eae9e7;
+    background-color: #c1bcba;
     border: solid 4px white;
     border-radius: 8px;
+    width: 100%;
 }
+
 #footer {
     position: fixed;
     bottom: 0;
-    background-color: #eae9e7;
-    height: 100px;
-    width: 100%;
-    color: #d77033;
-    padding-left: 40px;
+    right: 0;
+    background-color: #4F707C;
+    height: 200px;
+    width: 30%;
+    color: #d1886a;
+    padding: 60px 35px;
+    text-align: center;
+    border-top-left-radius: 20px;
 }
 .ok {
     color: #8fae25;

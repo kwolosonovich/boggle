@@ -22,6 +22,7 @@ def index():
 @app.route('/player_guess')
 def player_guess():
     '''collects player guess and checks for validity'''
+    print('home')
     word_guess = request.args['word_guess']
     print(word_guess)
     board = session["board"]
@@ -33,8 +34,8 @@ def player_guess():
 @app.route("/post-score", methods=["POST"])
 def player_score():
     score = request.json["score"]
-    highScore = session.get("highScore", 0)
-    session['highScore'] = max(score, highScore)
+    # highScore = session.get("highScore", 0)
+    # session['highScore'] = max(score, highScore)
     print(score)
     return score
 

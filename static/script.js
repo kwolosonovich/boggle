@@ -5,7 +5,7 @@ class BoggleGame {
         this.board = $("#" + boardId);
         this.guesses = new Set()
         this.score = 0;
-        this.timeLeft = 5;
+        this.timeLeft = 30;
         this.setGameTimer();
 
         $(".player-guess", this.board).on("submit", this.handleSubmitWord.bind(this));
@@ -16,13 +16,14 @@ class BoggleGame {
         e.preventDefault();
 
         const $word_guess = $(".word_guess", this.board);
+        console.log('handleSubmit')
 
         let word_guess = $word_guess.val();
         // check if word was submitted
         if (!word_guess) return;
         // check if word has already been submitted
         if (this.guesses.has(word_guess)) {
-            this.messageToPlayer("Duplicate word", "red");
+            this.messageToPlayer("Duplicate word", "alert-danger");
             return;
         }
         // add guess to set - *** code is different from solution ***
@@ -32,11 +33,11 @@ class BoggleGame {
         const resp = await axios.get("/player_guess", {params: {word_guess: word_guess}});
         // return validity message to player
         if (resp.data.result === "not-word") {
-            this.messageToPlayer(`${word_guess} is not a valid word`, "red")
+            this.messageToPlayer(`${word_guess} is not a valid word`, "alert-danger")
         } else if (resp.data.result === "not-on-board") {
             this.messageToPlayer(`${word_guess} is not included on board`)
         } else {
-            this.messageToPlayer(`Great job!`, 'green')
+            this.messageToPlayer(`Great job!`, 'alert-success')
             // # add length of word to player score
             this.score += word_guess.length
             console.log(this.score)
@@ -74,12 +75,12 @@ class BoggleGame {
 
      async gameOver() {
         $(".timer").hide();
-        $(".word_guess").hide();
+        // $(".word_guess").hide();
         const resp = await axios.post('/final-score', {score: this.score});
-        if (resp.data.highScore) {
-            this.messageToPlayer(`New high score is ${this.score}`, "green")
-        } else {
-            this.messageToPlayer(`Your score is ${this.score}`, "green")
-        }
+        // if (resp.data.highScore) {
+        //     this.messageToPlayer(`New high score is ${this.score}`, "alert-success")
+        // } else {
+            this.messageToPlayer(`Your score is ${this.score}`, "alert-info")
+        // }
     }
 }

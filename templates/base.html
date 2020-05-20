@@ -9,19 +9,15 @@
 </head>
 
 <body>
-<div id="heading">
+<div id="heading" class="dark">
     <h1>Boggle</h1>
-    <h5>Your favorite classic word finding game! </h5>
+    <h5>Your favorite classic word finding game!</h5>
 </div>
 
-<div id="main-style">
-    <main>
-        {% block content %}CONTENT HERE{% endblock %}
-    </main>
-</div>
+{% block content %}CONTENT HERE{% endblock %}
 
 <div id="footer">
-    <h5>Find as many words as you can by connecting horizontal, <br> vertical or diagonal letters <b>before the timer runs out!</b></h5>
+    <h5>Find as many words as you can by connecting horizontal, vertical or diagonal letters before the timer <i>runs out!</i></h5>
 </div>
 
 <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
