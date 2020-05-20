@@ -11,21 +11,20 @@ h3, h5 {
     font-family: 'Open Sans', sans-serif;
 }
 hr {
-    margin-top: 50px;
+    margin-top: 30px;
     border-top: 3px solid #c1bcba;
 }
 .dark {
     color: #4F707C;
-    padding-bottom: 35px;
+    padding-bottom: 30px;
 }
 .format {
     width: 100%;
     text-align: center;
 }
 #heading {
-    margin-bottom: 80px;
+    margin: 40px 0 50px 0;
     text-align: center;
-    padding: 60px 0 0 0;
 }
 .table {
     margin: 0 auto;
@@ -36,7 +35,7 @@ td {
     color: white;
     text-align: center;
     border-radius: 20px;
-    margin: 15px;
+    margin: 11px;
     font-family: 'Sigmar One', cursive;
     font-size: 40px;
 }
@@ -50,7 +49,7 @@ td {
 #form-block {
     width: 100%;
     padding: 0 15px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 #guess {
     font-family: 'Open Sans', sans-serif;
@@ -74,10 +73,10 @@ td {
     bottom: 0;
     right: 0;
     background-color: #4F707C;
-    height: 200px;
+    height: 150px;
     width: 30%;
     color: #d1886a;
-    padding: 60px 35px;
+    padding: 20px 30px;
     text-align: center;
     border-top-left-radius: 20px;
 }
