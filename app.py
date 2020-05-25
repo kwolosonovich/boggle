@@ -5,7 +5,7 @@ from boggle import Boggle
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secret"
 app.debug = True
-# app.config['TESTING'] = True
+app.config['TESTING'] = True
 # app.config['DEBUG_TB_HOSTS'] = ['dont-show-debug-toolbar']
 
 boggle_game = Boggle()
