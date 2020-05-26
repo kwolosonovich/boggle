@@ -8,23 +8,27 @@ class FlaskTests(TestCase):
     def setUp(self):
         '''to run before each test, creates client'''
         self.client = app.test_client()
-        app.config['testing'] = True
+        app.config['TESTING'] = True
 
     def test_if_board_generated(self):
         '''test if game board is generated'''
-        with self.client:
-            response = self.client.get('/')
+        with self.client as client:
+            response = client.get('/')
             self.assertIn('board', session)
             self.assertIsNone(session.get('highscore'))
 
+    def test_player_guess(self):
+        with self.client.session_transaction() as sess:
+            sess['board'] = [["A", "B", "C", "D", "E"],
+                             ["T", "B", "C", "D", "E"],
+                             ["A", "B", "C", "D", "E"],
+                             ["A", "B", "C", "D", "E"],
+                             ["A", "B", "C", "D", "E"]]
 
-    # def test_player_guess(self):
-    #     with self.client as client:
-    #         with client.session_transaction() as sess:
-    #             sess['board'] = [["A", "B", "C", "D", "E"], ["T", "B", "C", "D", "E"], ["A", "B", "C", "D", "E"],
-    #                              ["A", "B", "C", "D", "E"], ["A", "B", "C", "D", "E"]]
-    #             response = self.client.get('/player_quess')
-    #             self.assertEqual(response.json['result'], ok)
+
+        response = self.client.get('/player_quess?word_guess=tab')
+        print(response.status_code)
+            # self.assertEqual(response.json['result'], "ok")
 
     # def test_valid_word_on_board(self):
     #     '''Test if player guess is a valid word on board'''
